@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython_stdlib.min.js">
+    </script>
+</head>
+<body  onload="brython()" >
+    <script type="text/python">
+        
+        from browser import document, alert
+
+        from browser import document
+        from browser.widgets.dialog import InfoDialog
+        
+        def OpenInfoDialog(ev):
+            InfoDialog("Dialog Box", " Hello world !")
+        
+      
+        
+        document["button-click"].bind("click", OpenInfoDialog)
+        
+    </script>    
+    <button id="button-click"> Open Dialog</button>
+</body>
+</html>
