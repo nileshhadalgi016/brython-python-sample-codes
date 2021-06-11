@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython_stdlib.min.js">
+    </script>
+    <style>
+        .direction{
+            display: flex;
+            flex-direction: row;
+        }
+
+        #yellow1{
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
+        #blue1{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body  onload="brython()" >
+    <script type="text/python">
+        from browser import document
+        def mouseenter(ev):
+            document["trace1"].text = f' enter mouse {ev.currentTarget.id}'
+
+        def mouseleave(ev):
+            document["trace1"].text = f' leave mouse {ev.currentTarget.id}'
+
+        for elt_id in ("yellow1", "blue1"):
+            document[elt_id].bind('mouseenter', mouseenter)
+            document[elt_id].bind('mouseleave', mouseleave)
+    
+        </script> 
+        <div class="direction">
+            
+            <div id="yellow1">
+                <div id="blue1"></div>
+            </div>
+                  
+            <div id="trace1"></div>
+        </div>
+    
+</body>
+</html>
